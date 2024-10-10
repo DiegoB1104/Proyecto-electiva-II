@@ -14,16 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::table('parking_spots', function (Blueprint $table) {
-            $table->timestamp('entry_time')->nullable(); // Hora de entrada
-            $table->timestamp('exit_time')->nullable(); // Hora de salida
+            $table->timestamp('entry_time')->nullable();
+            $table->timestamp('exit_time')->nullable();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    
     public function down()
     {
         Schema::table('parking_spots', function (Blueprint $table) {

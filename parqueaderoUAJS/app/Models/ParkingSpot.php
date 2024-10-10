@@ -2,12 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class ParkingSpot extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'plate_number', 'is_occupied', 'entry_time', 'exit_time'
+    ];
 
-    protected $fillable = ['plate_number', 'is_occupied'];
+    // Usar casting para fechas
+    protected $casts = [
+        'entry_time' => 'datetime',
+        'exit_time' => 'datetime',
+    ];
 }
+

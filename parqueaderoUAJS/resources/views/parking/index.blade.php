@@ -70,7 +70,7 @@
         <div class="card">
             <div class="card-body">
                 <h2>Registrar Placa</h2>
-                <form action="{{ route('parking.assign') }}" method="POST" class="form-inline">
+                <form action="{{ route('parking.store') }}" method="POST" class="form-inline">
                     @csrf
                     <div class="form-group mb-2">
                         <label for="plate_number" class="sr-only">Número de Placa:</label>
@@ -84,7 +84,7 @@
         <div class="card">
             <div class="card-body">
                 <h2 class="mt-4">Asignación Manual</h2>
-                <form action="{{ route('parking.assign.manual') }}" method="POST" class="form-inline">
+                <form action="{{ route('parking.manualAssign') }}" method="POST" class="form-inline">
                     @csrf
                     <div class="form-group mb-2">
                         <label for="spot_id" class="sr-only">Selecciona un Puesto:</label>
@@ -108,10 +108,11 @@
         <div class="card">
             <div class="card-body">
                 <h2 class="mt-4">Estado de los Puestos</h2>
-                <div class="mb-4">
-                    <form action="{{ route('parking.search') }}" method="GET" class="form-inline">
+                <div class="mb-4 text-center">
+                    <form action="{{ route('parking.search') }}" method="GET" class="form-inline d-flex">
                         <input type="text" class="form-control mr-2" id="search_plate" name="search_plate" placeholder="Buscar placa" required style="text-transform: uppercase;">
                         <button type="submit" class="btn btn-info">Buscar</button>
+                        <a href="{{ route('parking.report') }}" class="btn btn-primary ml-2">Descargar Reporte en PDF</a>
                     </form>
 
                     <!-- Mostrar botón de regresar al inicio solo después de la búsqueda -->

@@ -69,7 +69,8 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Bogota', // Ajusta esto según tu ubicación
+
 
     /*
     |--------------------------------------------------------------------------
@@ -195,6 +196,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Barryvdh DomPDF Service Provider...
+         */
+        Barryvdh\DomPDF\ServiceProvider::class,  // <--- Aquí agregamos el provider
     ],
 
     /*
@@ -210,6 +215,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        
+        'PDF' => Barryvdh\DomPDF\Facade::class,  // <--- Aquí agregamos el alias
     ])->toArray(),
 
 ];
